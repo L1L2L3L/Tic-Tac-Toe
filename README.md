@@ -16,7 +16,7 @@
 ## Сборка приложения
 
 1. Убедитесь, что у вас установлен C++ компилятор и CMake.
-2. Клонируйте репозиторий: `git clone https://github.com/your-username/tic-tac-toe.git`
+2. Клонируйте репозиторий: `git clone https://github.com/L1L2L3L/Tic-Tac-Toe.git`
 3. Перейдите в каталог проекта: `cd tic-tac-toe`
 4. Создайте каталог для сборки: `mkdir build && cd build`
 5. Сгенерируйте проект CMake: `cmake ..`
