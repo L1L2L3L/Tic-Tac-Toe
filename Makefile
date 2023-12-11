@@ -1,17 +1,18 @@
 CC = g++
-CXXFLAGS = -std=c++14
+CXXFLAGS = -O2 -std=c++14
 LDFLAGS = -lstdc++
+OUT = Ticgame
 
-all: TicTacToe
+all: $(OUT)
 
-TicTacToe: main.o TicTacToe.o
-	$(CC) main.o TicTacToe.o -o TicTacToe $(LDF)
+$(OUT): main.o TicTacToe.o
+	$(CC) main.o TicTacToe.o -o $(OUT) $(LDFLAGS)
 
 main.o: main.cpp TicTacToe.h
-	$(CC) -c main.cpp $(CXXF)
+	$(CC) -c main.cpp $(CXXFLAGS)
 
 TicTacToe.o: TicTacToe.cpp TicTacToe.h
-	$(CC) -c TicTacToe.cpp $(CXXF)
+	$(CC) -c TicTacToe.cpp $(CXXFLAGS)
 
 clean:
-	rm -rf *.o TicTacToe
+	rm -f *.o $(OUT)
