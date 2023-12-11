@@ -3,10 +3,10 @@ CXXFLAGS = -O2 -std=c++14
 LDFLAGS = -lstdc++
 OUT = Ticgame
 
-all: $(OUT)
+all: Ticgame
 
-$(OUT): main.o TicTacToe.o
-	$(CC) main.o TicTacToe.o -o $(OUT) $(LDFLAGS)
+Ticgame: main.o libTicTacToe.a
+	$(CC) main.o libTicTacToe.a -o $(OUT) $(LDFLAGS)
 
 main.o: main.cpp TicTacToe.h
 	$(CC) -c main.cpp $(CXXFLAGS)
@@ -14,5 +14,7 @@ main.o: main.cpp TicTacToe.h
 TicTacToe.o: TicTacToe.cpp TicTacToe.h
 	$(CC) -c TicTacToe.cpp $(CXXFLAGS)
 
+libTicTacToe.a: TicTacToe.o
+	ar rcs libTicTacToe.a TicTacToe.o
 clean:
-	rm -f *.o $(OUT)
+	rm -f *.o *.a $(OUT)
