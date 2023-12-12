@@ -6,7 +6,7 @@ OUT = Ticgame
 all: Ticgame
 
 Ticgame: main.o libTicTacToe.a
-	$(CC) main.o libTicTacToe.a -o $(OUT) $(LDFLAGS)
+	$(CC) main.o -o $(OUT) -L. -lTicTacToe $(LDFLAGS)
 
 main.o: main.cpp TicTacToe.h
 	$(CC) -c main.cpp $(CXXFLAGS)
